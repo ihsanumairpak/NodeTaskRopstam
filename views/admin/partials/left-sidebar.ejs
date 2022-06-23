@@ -1,0 +1,53 @@
+<div class="left-side-menu left-side-menu-detached">
+  <div class="leftbar-user">
+    <a href="javascript: void(0);">
+      <img
+        src="/assets/admin/images/users/avatar-1.jpg"
+        alt="user-image"
+        height="42"
+        class="rounded-circle shadow-sm"
+      />
+      <span class="leftbar-user-name"><%= user.name_en %> </span>
+    </a>
+  </div>
+
+  <!--- Sidemenu -->
+  <ul class="metismenu side-nav">
+    <!-- <li class="side-nav-title side-nav-item">Navigation</li> -->
+
+    <li class="side-nav-item">
+      <a href="/dashboard" class="side-nav-link">
+        <i class="uil-home-alt"></i>
+        <span> Dashboard </span>
+      </a>
+    </li>
+
+    <li class="side-nav-item">
+      <a href="/admin/users" class="side-nav-link">
+        <i class="uil-user"></i>
+        <span> User </span>
+      </a>
+    </li>
+
+    <li class="side-nav-item">
+      <a href="/admin/updatepassword/<%=user.id%>" class="side-nav-link">
+        <i class="uil-user"></i>
+        <span> Update Password</span>
+      </a>
+    </li>
+
+    <li class="side-nav-item">
+      <a href="/admin/vehicle" class="side-nav-link">
+        <i class="uil-truck"></i>
+        <span> Vehicle </span>
+      </a>
+    </li>
+  </ul>
+  <!-- Help Box -->
+
+  <!-- end Help Box -->
+  <!-- End Sidebar -->
+
+  <div class="clearfix"></div>
+  <!-- Sidebar -left -->
+</div>

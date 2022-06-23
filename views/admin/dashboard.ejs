@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+
+  <body
+    class="loading"
+    data-layout="detached"
+    data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'
+  >
+    <!-- Topbar Start -->
+    <%- include('./partials/topbar') %>
+    <!-- end Topbar -->
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+      <!-- Begin page -->
+      <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include('./partials/left-sidebar') %>
+        <!-- Left Sidebar End -->
+
+        <div class="content-page">
+          <div class="content">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+               
+                  <h4 class="page-title">Dashboard</h4>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+              <div class="col-xl-5 col-lg-6">
+                <% if ( successFlash.length> 0 ) { %>
+                <div
+                  class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5><i class="icon fas fa-check"></i> Success!</h5>
+                  <%= successFlash %>
+                </div>
+                <% } %>
+                <!-- Error Flash Message -->
+                <% if ( errorFlash.length> 0 ) { %>
+                <div
+                  class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                  <%= errorFlash %>
+                </div>
+                <% } %>
+
+                <!-- end row -->
+
+                <!-- end row -->
+              </div>
+              <!-- end col -->
+
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+            <div class="row">
+              <div class="col-xl-5 col-lg-6">
+                <h1>Welcome ! <%= user.name_en %></h1>
+              </div>
+              <!-- end row -->
+            </div>
+          </div>
+          <!-- End Content -->
+
+          <!-- Footer Start -->
+          <%- include('./partials/footer') %>
+          <!-- end Footer -->
+        </div>
+        <!-- content-page -->
+      </div>
+      <!-- end wrapper-->
+    </div>
+    <!-- END Container -->
+
+    <!-- Right Sidebar -->
+    <%- include('./partials/right-sidebar') %>
+
+    <div class="rightbar-overlay"></div>
+    <!-- /Right-bar -->
+
+    <!-- bundle -->
+    <%- include('./partials/script') %>
+    <!-- end demo js-->
+  </body>
+</html>

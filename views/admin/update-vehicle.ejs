@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+
+  <body
+    class="loading"
+    data-layout="detached"
+    data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'
+  >
+    <!-- Topbar Start -->
+    <%- include('./partials/topbar') %>
+    <!-- end Topbar -->
+
+    <!-- Start Content-->
+    <div class="container-fluid">
+      <!-- Begin page -->
+      <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <%- include('./partials/left-sidebar') %>
+        <!-- Left Sidebar End -->
+
+        <div class="content-page">
+          <div class="content">
+            <!-- start page title -->
+            <div class="row">
+              <div class="col-12">
+                <div class="page-title-box">
+                  <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                      <div class="input-group-append">
+                        <a href="/admin/vehicle" class="btn btn-primary">
+                          Records
+                        </a>
+                      </div>
+                    </ol>
+                  </div>
+                  <h4 class="page-title">Edit Vehicle</h4>
+                </div>
+              </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+              <div class="col-12">
+                <% if ( successFlash.length> 0 ) { %>
+                <div
+                  class="alert alert-success alert-dismissible bg-success text-white border-0 fade show"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5><i class="icon fas fa-check"></i> Success!</h5>
+                  <%= successFlash %>
+                </div>
+                <% } %>
+                <!-- Error Flash Message -->
+                <% if ( errorFlash.length> 0 ) { %>
+                <div
+                  class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                  <%= errorFlash %>
+                </div>
+                <% } %>
+                <div class="card">
+                  <div class="card-body">
+                    <form
+                      method="post"
+                      action="/admin/update-vehicle/<%=data.id%>"
+                      class="form-data"
+                    >
+                      <div class="tab-content">
+                        <div
+                          class="tab-pane show active"
+                          id="typeahead-preview"
+                        >
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group mb-3">
+                                <label>Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  data-provide="typeahead"
+                                  id="the-basics"
+                                  placeholder="Enter your page slug"
+                                  name="name_en"
+                                  value="<%= data.name_en %>"
+                                />
+                              </div>
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-6 mt-3 mt-lg-0">
+                              <div class="form-group mb-3">
+                                <label>Category</label>
+                                <input
+                                  id="bloodhound"
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="email"
+                                  name="category"
+                                  value="<%= data.category%>"
+                                />
+                              </div>
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <!-- end row -->
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group mb-3">
+                                <label>Color</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  data-provide="typeahead"
+                                  id="the-basics"
+                                  placeholder="contact"
+                                  name="color"
+                                  value="<%= data.color %>"
+                                />
+                              </div>
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-6 mt-3 mt-lg-0">
+                              <div class="form-group mb-3">
+                                <label>Model</label>
+                                <input
+                                  id="bloodhound"
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="address"
+                                  name="Model"
+                                  value="<%= data.Model %>"
+                                />
+                              </div>
+                            </div>
+                            <!-- end col -->
+                          </div>
+                          <!-- end row -->
+
+                          <!-- end row -->
+                        </div>
+                        <!-- end preview-->
+
+                        <!-- end preview code-->
+                      </div>
+                      <!-- end tab-content-->
+                      <div class="text-right">
+                        <button type="submit" class="btn btn-success mt-3">
+                          Update
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- end card-body -->
+                </div>
+                <!-- end card-->
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- End Content -->
+
+          <!-- Footer Start -->
+          <footer class="footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6">
+                  2018 - 2020 © Hyper - Coderthemes.com
+                </div>
+                <div class="col-md-6">
+                  <div class="text-md-right footer-links d-none d-md-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- end Footer -->
+        </div>
+        <!-- content-page -->
+      </div>
+      <!-- end wrapper-->
+    </div>
+    <!-- END Container -->
+
+    <!-- Right Sidebar -->
+    <div class="right-bar">
+      <div class="rightbar-title">
+        <a href="javascript:void(0);" class="right-bar-toggle float-right">
+          <i class="dripicons-cross noti-icon"></i>
+        </a>
+        <h5 class="m-0">Settings</h5>
+      </div>
+
+      <div class="rightbar-content h-100" data-simplebar>
+        <div class="p-3">
+          <div class="alert alert-warning" role="alert">
+            <strong>Customize </strong> the overall color scheme, sidebar menu,
+            etc.
+          </div>
+
+          <!-- Settings -->
+          <h5 class="mt-3">Color Scheme</h5>
+          <hr class="mt-1" />
+
+          <div class="custom-control custom-switch mb-1">
+            <input
+              type="radio"
+              class="custom-control-input"
+              name="color-scheme-mode"
+              value="light"
+              id="light-mode-check"
+              checked
+            />
+            <label class="custom-control-label" for="light-mode-check"
+              >Light Mode</label
+            >
+          </div>
+
+          <div class="custom-control custom-switch mb-1">
+            <input
+              type="radio"
+              class="custom-control-input"
+              name="color-scheme-mode"
+              value="dark"
+              id="dark-mode-check"
+            />
+            <label class="custom-control-label" for="dark-mode-check"
+              >Dark Mode</label
+            >
+          </div>
+
+          <!-- Left Sidebar-->
+          <h5 class="mt-4">Left Sidebar</h5>
+          <hr class="mt-1" />
+
+          <div class="custom-control custom-switch mb-1">
+            <input
+              type="radio"
+              class="custom-control-input"
+              name="compact"
+              value="fixed"
+              id="fixed-check"
+              checked
+            />
+            <label class="custom-control-label" for="fixed-check"
+              >Scrollable</label
+            >
+          </div>
+
+          <div class="custom-control custom-switch mb-1">
+            <input
+              type="radio"
+              class="custom-control-input"
+              name="compact"
+              value="condensed"
+              id="condensed-check"
+            />
+            <label class="custom-control-label" for="condensed-check"
+              >Condensed</label
+            >
+          </div>
+
+          <button class="btn btn-primary btn-block mt-4" id="resetBtn">
+            Reset to Default
+          </button>
+
+          <a
+            href="https://themes.getbootstrap.com/product/hyper-responsive-admin-dashboard-template/"
+            class="btn btn-danger btn-block mt-3"
+            target="_blank"
+            ><i class="mdi mdi-basket mr-1"></i> Purchase Now</a
+          >
+        </div>
+        <!-- end padding-->
+      </div>
+    </div>
+
+    <div class="rightbar-overlay"></div>
+    <!-- /Right-bar -->
+
+    <!-- bundle -->
+    <%- include('./partials/script') %>
+  </body>
+</html>
